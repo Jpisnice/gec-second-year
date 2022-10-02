@@ -27,6 +27,7 @@ public:
     bool isfull();
     string combo(string optr1,char optr2,char opr);
     void getexp();
+    void check();
 };
 
 //-----------Gets Expression From User------------------------------------------
@@ -35,6 +36,11 @@ void stack1::getexp()
     cout<<"Enter the Postfix Expression"<<endl;
     cin>>expression;
     expTop=expression.length()-1;
+    
+}
+
+void stack1::check()
+{
     
 }
 
