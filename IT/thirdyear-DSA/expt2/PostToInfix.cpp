@@ -25,9 +25,10 @@ public:
     void display();
     bool isempty();
     bool isfull();
-    string combo(string optr1,char optr2,char opr);
+    string combo(string optr1,string optr2,string opr);
     void getexp();
     void check();
+    bool isOperator(string ch);
 };
 
 //-----------Gets Expression From User------------------------------------------
@@ -41,7 +42,21 @@ void stack1::getexp()
 
 void stack1::check()
 {
-    
+    string ch;
+    int i=0;
+    while(expression[i]!='\0')
+    {
+        ch=expression[i];
+
+        if(isOperator(ch))
+        {
+            push(combo(pop(),ch,pop()));
+        }
+        else
+        {
+            push(ch);
+        }
+    }
 }
 
 /*
@@ -63,7 +78,7 @@ void stack1::check()
 ----------------------------------------------------------------------
 */
 
-string stack1::combo(string optr1, char optr2, char opr)
+string stack1::combo(string optr1, string optr2, string opr)
 {
     string expr;
     
@@ -119,4 +134,11 @@ bool stack1 ::isfull()
         return true;
     else
         return false;
+}
+
+bool stack1::isOperator(string ch)
+{
+    if (ch[0] == '*' || ch[0] == '/' || ch[0] == '+' || ch[0] == '-' || ch[0] == '^')
+        return true;
+    else return false;
 }
