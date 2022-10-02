@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 #include <iostream>
-#define MAX 5
+#define MAX 20
 
 using namespace std;
 
@@ -97,15 +97,17 @@ string stack1::combo(string optr1, string optr2, string opr)
 */
 string stack1 ::pop()
 {
+    string x;
     if (isempty())
     {
         cout << endl
              << "The stack1 is empty" << endl;
         return;
     }
-    return stack [stackTop];
+    x=stack [stackTop];
     stack [stackTop] = " ";
- stackTop--;
+    stackTop--;
+    return x;
 }
 
 void stack1 ::push(string expr)
